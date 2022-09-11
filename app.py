@@ -1,4 +1,4 @@
-from flask import Flask, request
+from flask import Flask, request, render_template
 from managers import TodoManager
 from redis_om import Migrator
 from flask_cors import CORS
@@ -9,6 +9,11 @@ CORS(app)
 @app.route('/ping')
 def ping():
     return 'pong'
+
+
+@app.route('/redis-todo', strict_slashes=False)
+def home_page():
+    return render_template('index.html')
 
 
 @app.route('/todo', methods=["POST"])

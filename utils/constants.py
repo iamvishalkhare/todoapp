@@ -4,4 +4,3 @@ class Messages:
     GET_SUCCESS = 'Items fetched successfully 👍'
     UPSERT_SUCCESS = 'Item updated successfully 👍'
     DELETE_SUCCESS = 'Items deleted successfully 👍'
-

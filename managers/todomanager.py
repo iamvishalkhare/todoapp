@@ -11,7 +11,7 @@ class TodoManager:
         try:
             new_sku = TodoItem(**{"item": item})
             new_sku.save()
-        except ValidationError as e:
+        except ValidationError:
             return Result(data=None, status=False, message=Messages.ERROR)
         return Result(data=new_sku, status=True, message=Messages.SET_SUCCESS)
 
@@ -33,7 +33,7 @@ class TodoManager:
         try:
             item = TodoItem(**payload)
             item.save()
-        except ValidationError as e:
+        except ValidationError:
             return Result(data=None, status=False, message=Messages.ERROR)
         return Result(data=None, status=True, message=Messages.UPSERT_SUCCESS)
 
@@ -44,4 +44,3 @@ class TodoManager:
         for item in items:
             TodoItem.delete(item.pk)
         return Result(data=None, status=True, message=Messages.DELETE_SUCCESS)
-
