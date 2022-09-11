@@ -8,9 +8,9 @@
 A simple todo app with redis backend. Frontend is an angular application and backend is a python flask application.
 
 ### Screenshots
-![image info](./screenshots/1.png)
-![image info](./screenshots/1.png)
-![image info](./screenshots/1.png)
+| ![image info](./screenshots/1.png)  |  ![image info](./screenshots/1.png) | ![image info](./screenshots/1.png)  |
+|---|---|---|
+
 
 ### Local setup
 We will run angular and flask applications on 2 separate terminals.
