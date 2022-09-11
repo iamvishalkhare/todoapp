@@ -35,4 +35,6 @@ def delete_todos():
     return result.dict()
 
 
-Migrator().run()
+if __name__ == "__main__":
+    Migrator().run()
+    app.run(host='0.0.0.0', port=8080)
