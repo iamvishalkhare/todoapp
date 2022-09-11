@@ -2,7 +2,8 @@
 
 ![](https://github.com/iamvishalkhare/todoapp/actions/workflows/python-app.yml/badge.svg)
 
-[Demo app](http://13.235.106.236/redis-todo)
+[Demo app](http://13.235.106.236/redis-todo) || 
+[Postman collection for deployed backend](https://www.getpostman.com/collections/644a5723b4e630b7c87b)
 ### Description-
 A simple todo app with redis backend. Frontend is an angular application and backend is a python flask application.
 
@@ -16,7 +17,7 @@ We will run angular and flask applications on 2 separate terminals.
 
 #### Setting redis endpoint-
 This project uses `redis-om` to interact with redis. It uses RediSearch module to save data as native JSON objects.
-Set you redis endpoint in environment variable using this command-
+Set your redis endpoint as environment variable using this command-
 ```bash
 export REDIS_OM_URL=http://localhost:6379
 ```
