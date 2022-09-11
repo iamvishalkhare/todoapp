@@ -11,7 +11,8 @@ A simple todo app with redis backend. Frontend is an angular application and bac
 | ![image info](./screenshots/1.png)  |  ![image info](./screenshots/1.png) | ![image info](./screenshots/1.png)  |
 |---|---|---|
 
-
+### Video explainer
+[![Demo video](https://img.youtube.com/vi/uDytA3TNrNM/0.jpg)](https://www.youtube.com/watch?v=uDytA3TNrNM)
 ### Local setup
 We will run angular and flask applications on 2 separate terminals.
 
