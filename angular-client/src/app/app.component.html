@@ -1,0 +1,76 @@
+<div class="d-flex p-2 col-lg-4">
+  <div class="container">
+    <mat-card>
+      <mat-card-title>
+        To do app  📝
+      </mat-card-title>
+      <mat-card-subtitle>
+        A simple filter based todo app with redis backend.
+        <div class="btn-filter">
+          <button mat-raised-button [disabled]="isAllDisabled" color="accent" (click)="getTodos('all')">All</button>
+          <button mat-raised-button [disabled]="isActiveDisabled" color="accent" (click)="getTodos('active')">Active</button>
+          <button mat-raised-button [disabled]="isCompletedDisabled" color="accent" (click)="getTodos('completed')">Completed</button>
+        </div>
+      </mat-card-subtitle>
+      <mat-divider></mat-divider>
+      <br>
+      <mat-card-content>
+        <div class="btn-filter">
+          <mat-form-field appearance="legacy">
+            <mat-label>What needs to be done?</mat-label>
+              <input matInput placeholder="Eg. Call doctor"
+                     [(ngModel)]="textInput"
+                     (keyup.enter)="addNewItem(textInput)">
+              <mat-icon matSuffix (click)="textInput = ''">backspace</mat-icon>
+            <mat-hint>Press enter/+ after typing</mat-hint>
+          </mat-form-field>
+          <button mat-raised-button color="primary"
+                  (click)="addNewItem(textInput)">
+            <mat-icon matSuffix>add</mat-icon>
+          </button>
+        </div>
+        <mat-divider></mat-divider>
+        <br>
+        <div>
+          <mat-selection-list *ngIf="todoItems.length > 0">
+            <div *ngFor="let item of todoItems">
+              <mat-list-option (click)="onCheckChange(item)"
+                               [selected]="item.status == 'completed'"
+                               [value]="item.pk">
+                <div [ngStyle]="{'text-decoration': item.status == 'completed' ? 'line-through' : 'none' }">
+                  {{item.item}}
+                </div>
+                <mat-divider></mat-divider>
+              </mat-list-option>
+            </div>
+          </mat-selection-list>
+          <br>
+          <div style="float: right;" *ngIf="todoItems.length > 0">
+            <div *ngIf="isAllDisabled">
+              <span>{{completedTasksCount()}} in {{todoItems.length}} tasks completed</span>
+            </div>
+            <div *ngIf="isActiveDisabled">
+              <span>{{todoItems.length}} active tasks</span>
+            </div>
+            <div *ngIf="isCompletedDisabled">
+              <span>{{todoItems.length}} completed tasks</span>
+            </div>
+          </div>
+          <br>
+          <br>
+          <div style="float: right;" *ngIf="completedTasksCount()">
+            <button mat-raised-button color="accent" (click)="deleteTodos()"><mat-icon matSuffix>delete</mat-icon>Delete completed tasks</button>
+          </div>
+          <br>
+          <br>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
+<footer class="bg-light text-center text-lg-start fixed-bottom">
+  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+    Designed & developed with <span style="color: #a91414;">&hearts;</span> by
+    <a class="text-dark" target="_blank" href="https://vishalkhare.com/">Vishal Khare</a>
+  </div>
+</footer>
